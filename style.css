@@ -1,0 +1,44 @@
+header h1{
+    outline: 1px solid blue;
+    text-align: center;
+}
+
+.pick {
+    text-align: center;
+    width: 100%;
+    outline: 1px solid red;
+}
+
+#mySelect {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+}
+
+
+.the-box{
+    border: 1px solid green;
+    height: 50%;
+    width: 100%;
+    margin: auto;
+}
+
+@media screen and (min-width: 700px){
+    .the-box{
+        width: 80%;
+    }
+    #mySelect {
+        width: 70%;
+        text-align: center;
+    }
+}
+@media screen and (min-width: 1024px){
+    .the-box{
+        width: 60%;
+    }
+    #mySelect {
+        width: 50%;
+        text-align: center;
+    }
+}
+
