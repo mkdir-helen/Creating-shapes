@@ -1,46 +1,39 @@
 //I want to build a cone in javascript
 
-// var height = 9;
-// var num = parseInt(2*height - 1);
-// var init_num;
 
-function cone(userInput){
-    var num = parseInt(2*userInput - 1);
-    init_num = num;
-    while (num > 0){
-        if(num % 2 === 1){
-            if (init_num === num){
-                var a_num = num;
-                while(a_num > 0){
-                    // document.getElementById('demo').innerHTML = '*';
-                    console.log('*');
-                    a_num -= 1;
-                }
-            }else{
-                var b_num = num;
-                var x_num = num;
-                while(b_num >= 0){
-                    if(b_num > b_num - x_num){
-                        while(x_num > 0){
-                            // document.getElementById('demo').innerHTML = ' ';
-                            console.log(' ');
-                            b_num -= 1;
-                        }
-                    }else{
-                        // document.getElementById('demo').innerHTML = ' ';
-                        console.log(' ');
-                    }
-                    b_num -= 1;
-                }
-    
-            }
-        }
-        num -= 1;
-    }
-    
-}
 
-// console.log(cone(9));
+function cone_width(height){
+    return parseInt(2*height-1);
+  };
+  let width, oWidth;
+  width = oWidth = cone_width(5);
+  let firstLine = '';
+  
+  for(let num=oWidth; num > 0; num--){
+    if(width == oWidth){
+      for(let num=width; num > 0; num--){
+        firstLine += '*';
+      };
+      console.log(firstLine+ '\n');
+      width--;
+    }else{
+      if(width % 2 === 1){
+        let nextLine = '';
+        let spaces = parseInt((oWidth - width)/2);
+        for(let num=spaces; num>0; num--){
+            nextLine += '1';
+          
+        };
+        for(let num=width; num > 0; num--){
+            nextLine += '*';
+        };
+        console.log(nextLine+'\n');
+        width--;
+      }else{
+          width--;
+      };
+    };
+  };
 
 
 
