@@ -4,17 +4,16 @@
 // var num = parseInt(2*height - 1);
 // var init_num;
 
-function cone(){
-    var userInput = document.getElementById('demo').value
+function cone(userInput){
     var num = parseInt(2*userInput - 1);
     init_num = num;
     while (num > 0){
-        if(num % 2 == 1){
-            if (init_num == num){
+        if(num % 2 === 1){
+            if (init_num === num){
                 var a_num = num;
                 while(a_num > 0){
-                    // document.getElementById("demo").innerHTML = 5 + 6;
-                    document.getElementById('demo').innerHTML = '*';
+                    // document.getElementById('demo').innerHTML = '*';
+                    console.log('*');
                     a_num -= 1;
                 }
             }else{
@@ -23,11 +22,13 @@ function cone(){
                 while(b_num >= 0){
                     if(b_num > b_num - x_num){
                         while(x_num > 0){
-                            document.getElementById('demo').innerHTML = ' ';
+                            // document.getElementById('demo').innerHTML = ' ';
+                            console.log(' ');
                             b_num -= 1;
                         }
                     }else{
-                        document.getElementById('demo').innerHTML = ' ';
+                        // document.getElementById('demo').innerHTML = ' ';
+                        console.log(' ');
                     }
                     b_num -= 1;
                 }
@@ -38,6 +39,8 @@ function cone(){
     }
     
 }
+
+// console.log(cone(9));
 
 
 
