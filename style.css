@@ -18,9 +18,14 @@ header h1{
 
 .the-box{
     border: 1px solid green;
-    height: 50%;
+    height: 70%;
     width: 100%;
-    margin: auto;
+    margin: 10% auto 0 auto;
+    display: table;
+}
+
+#showcase{
+    display: table;
 }
 
 @media screen and (min-width: 700px){
