@@ -13,33 +13,36 @@ function make_cone(){
   width = oWidth = cone_width(userInput);
   let firstLine = '';
   let symbol = document.getElementById('mySelect').value;
+  let answer = document.getElementById("showcase");
   for(let num=oWidth; num > 0; num--){
     if(width == oWidth){
       for(let num=width; num > 0; num--){
         firstLine += symbol;
       };
-      console.log(firstLine+ '\n');
+      // console.log(firstLine+ '\n');
+      answer.innerHTML= (firstLine+ '<br>');
       width--;
     }else{
       if(width % 2 === 1){
         let nextLine = '';
         let spaces = parseInt(oWidth - width);
         for(let num=spaces; num>0; num--){
-            nextLine += ' ';
+            nextLine += ' &nbsp ';
           
         };
         for(let num=width; num > 0; num--){
             nextLine += symbol;
         };
-        console.log(nextLine+'\n');
+        // console.log(nextLine+'\n');
+        answer.innerHTML += (nextLine+'<br>');
         width--;
       }else{
           width--;
       };
     };
   };
+  
 };  
   
-
 
 
