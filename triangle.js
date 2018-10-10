@@ -23,7 +23,7 @@ function make_cone(){
     }else{
       if(width % 2 === 1){
         let nextLine = '';
-        let spaces = parseInt((oWidth - width)/2);
+        let spaces = parseInt(oWidth - width);
         for(let num=spaces; num>0; num--){
             nextLine += ' ';
           
