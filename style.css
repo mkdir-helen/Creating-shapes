@@ -21,7 +21,7 @@ header h1{
     height: 70%;
     width: 100%;
     margin: 10% auto 0 auto;
-    display: table;
+    display: table; /* makes sure the content always fits within the box */
 }
 
 #showcase{
