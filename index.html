@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <header>
-    <h1>Let's Make Triangles!</h1>
+    <h1>Let's Make Shapes!</h1>
 </header>
 <body>
     <form class='pick'>
@@ -17,7 +17,8 @@
             <option value='😊'>smile</option>
             <option value='🐬'>dolphin</option>
         </select>
-        <label for="height-tri">Enter the height of triangle: </label><input type="text" name="number" id="height-tri">
+        <label for="height-tri">Enter the height of triangle: </label>
+        <input type="number" name="number" id="height-tri" min="1" max="100">
         <input type="button" value="Submit" onclick="make_cone()">
     </form>   
     <div class='the-box'>
