@@ -8,7 +8,7 @@ function cone_width(height){
 
 
 function make_cone(){
-  userInput = document.getElementById('height-tri').value;
+  let userInput = document.getElementById('height-tri').value;
   let width, oWidth;
   width = oWidth = cone_width(userInput);
   let firstLine = '';
