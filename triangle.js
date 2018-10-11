@@ -1,6 +1,13 @@
 //I want to build a cone in javascript
 
+// outputElement.textContent = newFortune;
+// const triangle = document.querySelector('[data-shape="triangle"]');
+const cone = document.querySelector('[data-shape="cone"]');
+// const box = document.querySelector('[data-shape="box"]');
+// const square = document.querySelector('[data-shape="square"]');
 
+//Calling the cone function
+cone.addEventListener('click', make_cone);
 
 function cone_width(height){
     return parseInt(2*height-1);
