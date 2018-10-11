@@ -6,9 +6,16 @@ const cone = document.querySelector('[data-shape="cone"]');
 // const box = document.querySelector('[data-shape="box"]');
 // const square = document.querySelector('[data-shape="square"]');
 
+
+
+
 //Calling the cone function
 cone.addEventListener('click', make_cone);
 
+let symbol = document.getElementById('mySelect').value;
+let answer = document.getElementById("showcase");
+
+////////////CONE//////////////////////////
 function cone_width(height){
     return parseInt(2*height-1);
   };
@@ -19,8 +26,6 @@ function make_cone(){
   let width, oWidth;
   width = oWidth = cone_width(userInput);
   let firstLine = '';
-  let symbol = document.getElementById('mySelect').value;
-  let answer = document.getElementById("showcase");
   for(let num=oWidth; num > 0; num--){
     if(width == oWidth){
       for(let num=width; num > 0; num--){
