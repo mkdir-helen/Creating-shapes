@@ -12,6 +12,7 @@
 <body>
     <form action="" class="choose-shape" data-choose-shape>
         <select name="shapes" id="">
+            <option value="">Select One …</option>
             <option  value="triangle">triangle</option>
             <option  value="cone">cone</option>
             <option  value="square">square</option>
@@ -19,15 +20,15 @@
         </select>
     </form>
     <form class='pick'>
-        <select id="mySelect">
+        <select name="mySelect" id="mySelect">
             <option value='⭐️'>star</option>
             <option value='❤️'>heart</option>
             <option value='😊'>smile</option>
             <option value='🐬'>dolphin</option>
         </select>
-        <label id='height-tri-label' for="height-tri">Enter the height of triangle: </label>
+        <label id='height-tri-label' for="height-tri"></label>
         <input type="number" name="number" id="height-tri" min="1" max="100">
-        <input id="submit" type="button" value="Submit" data-shape="cone">
+        <input id="submit" type="button" value="Submit" data-shape>
     </form>   
     <div class='the-box'>
         <p id='showcase'></p>

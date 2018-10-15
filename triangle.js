@@ -1,12 +1,14 @@
 //I want to build a cone in javascript
-let symbol = document.getElementById('mySelect').value;
+let sym = document.getElementById('mySelect');
+// let symbol = getSymbol();
 let answer = document.getElementById("showcase");
+// console.log(symbol);
 
 // outputElement.textContent = newFortune;
-const triangle = document.querySelector('[data-shape="triangle"]');
-const cone = document.querySelector('[data-shape="cone"]');
-const box = document.querySelector('[data-shape="box"]');
-const square = document.querySelector('[data-shape="square"]');
+// const triangle = document.querySelector('[data-shape="triangle"]');
+// const cone = document.querySelector('[data-shape="cone"]');
+// const box = document.querySelector('[data-shape="box"]');
+// const square = document.querySelector('[data-shape="square"]');
 
 
 //Changing the DOM when the user chooses an option
@@ -14,17 +16,39 @@ document.addEventListener('DOMContentLoaded', function(){
   document.querySelector('select[name="shapes"]').onchange=changeEventHandler;
 }, false);
 
+// symbol.addEventListener('click', function(event){
+//   symbol.value = event.target.value;
+//   console.log(symbol);
+// }, false);
+
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelector('select[name="mySelect"]').onchange=getSymbol;
+}, false);
+
+function getSymbol(event){
+  sym.value = event.target.value;
+  symbol = sym.value;
+  return symbol;
+};
+
 function changeEventHandler(event){
-  if(event.target.value === "square"){
+  answer.innerHTML = '';
+  if(event.target.value === "cone"){
     let dataShape = document.getElementById('submit');
-    dataShape.setAttribute("data-shape", "square");
-    document.getElementById('height-tri-label').innerHTML = "Enter the size of the square:";
+    dataShape.setAttribute('data-shape', 'cone');
+    document.getElementById('height-tri-label').innerHTML = "Enter the height of cone: ";
+    dataShape.addEventListener('click', make_cone);
+  }else if(event.target.value === "square"){
+    let dataShape = document.getElementById('submit');
+    dataShape.setAttribute('data-shape', 'square');
+    document.getElementById('height-tri-label').innerHTML = "Enter the size of the square: ";
     dataShape.addEventListener('click', make_square);
   };
 }
 
 
 function make_square (){
+  answer.innerHTML = '';
   let num = document.getElementById('height-tri').value;
   for(let row=0;row<num; row++){
     let line = '';
@@ -36,7 +60,7 @@ function make_square (){
 }
 
 //Calling the cone function
-cone.addEventListener('click', make_cone);
+// cone.addEventListener('click', make_cone);
 
 
 ////////////CONE//////////////////////////
@@ -46,6 +70,7 @@ function cone_width(height){
 
 
 function make_cone(){
+  answer.innerHTML = '';
   let userInput = document.getElementById('height-tri').value;
   let width, oWidth;
   width = oWidth = cone_width(userInput);
