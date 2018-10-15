@@ -34,7 +34,14 @@ function getSymbol(event){
 
 function changeEventHandler(event){
   answer.innerHTML = '';
-  if(event.target.value === "cone"){
+  if(event.target.value === "triangle"){
+    toggleBox();
+    toggleNonBox();
+    let dataShape = document.getElementById('submit');
+    dataShape.setAttribute('data-shape', 'triangle');
+    document.getElementById('height-tri-label').innerHTML = "Enter the height of triangle: ";
+    dataShape.addEventListener('click', make_triangle);
+  }else if(event.target.value === "cone"){
     toggleBox();
     toggleNonBox();
     let dataShape = document.getElementById('submit');
@@ -63,6 +70,41 @@ function toggleNonBox(){
   if(nonBox.classList.contains('invisible')){
     nonBox.classList.remove('invisible');
   };
+}
+
+function make_triangle(){
+  answer.innerHTML = '';
+  let userInput = document.getElementById('height-tri').value;
+  let oWidth;
+  oWidth = cone_width(userInput);
+  let firstLine = '';
+  for(let width=1; width <= oWidth; width++){
+      if(width % 2 === 1){
+        let nextLine = '';
+        let spaces = parseInt(oWidth - width);
+        for(let num=spaces; num>0; num--){
+            nextLine += ' &nbsp ';
+            // nextLine += ' ';
+          
+        };
+        for(let num=width; num > 0; num--){
+            nextLine += symbol;
+        };
+        // console.log(nextLine+'\n');
+        answer.innerHTML += (nextLine+'<br>');
+        width++;
+      }else if(width == oWidth){
+      for(let num=width; num > 0; num--){
+        firstLine += symbol;
+      };
+      // console.log(firstLine+ '\n');
+      answer.innerHTML= (firstLine+ '<br>');
+      width++;
+    }else{
+          width++;
+      };
+    };
+
 }
 
 function make_box(){
