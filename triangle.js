@@ -2,7 +2,8 @@
 let sym = document.getElementById('mySelect');
 // let symbol = getSymbol();
 let answer = document.getElementById("showcase");
-// console.log(symbol);
+let nonBox = document.querySelector('[data-nonbox]');
+let forBox = document.querySelector('[data-for-box]');
 
 // outputElement.textContent = newFortune;
 // const triangle = document.querySelector('[data-shape="triangle"]');
@@ -34,18 +35,58 @@ function getSymbol(event){
 function changeEventHandler(event){
   answer.innerHTML = '';
   if(event.target.value === "cone"){
+    toggleBox();
+    toggleNonBox();
     let dataShape = document.getElementById('submit');
     dataShape.setAttribute('data-shape', 'cone');
     document.getElementById('height-tri-label').innerHTML = "Enter the height of cone: ";
     dataShape.addEventListener('click', make_cone);
   }else if(event.target.value === "square"){
+    toggleBox();
+    toggleNonBox();
     let dataShape = document.getElementById('submit');
     dataShape.setAttribute('data-shape', 'square');
     document.getElementById('height-tri-label').innerHTML = "Enter the size of the square: ";
     dataShape.addEventListener('click', make_square);
+  } else if(event.target.value === "box"){
+    forBox.classList.remove('invisible');
+    nonBox.classList.add('invisible');
+  }
+}
+
+function toggleBox(){
+  if(forBox.classList.contains('invisible') === false){
+    forBox.classList.add('invisible');
+  };
+}
+function toggleNonBox(){
+  if(nonBox.classList.contains('invisible')){
+    nonBox.classList.remove('invisible');
   };
 }
 
+function make_box(){
+  let height = 4;
+  let width = 6;
+
+  for(let row=0; row<height; row++){
+      let line = '';
+      for(let col=0; col<width; col++){
+          if(row === height-1 || row === 0){
+              line += symbol;
+          }else{
+              if(col === 0){
+                  line += symbol;
+              }else if(col === width-1){
+                  line += ' '+symbol;
+              }else{
+                  line += '  ';
+              }
+          }
+      };
+      console.log(line);
+  }; 
+}
 
 function make_square (){
   answer.innerHTML = '';

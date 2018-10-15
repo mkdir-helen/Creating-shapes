@@ -24,6 +24,10 @@ header h1{
     display: table; /* makes sure the content always fits within the box */
 }
 
+.invisible {
+    display: none;
+}
+
 #showcase{
     display: table;
 }

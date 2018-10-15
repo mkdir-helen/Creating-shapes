@@ -16,7 +16,7 @@
             <option  value="triangle">triangle</option>
             <option  value="cone">cone</option>
             <option  value="square">square</option>
-            <option  value="box">box</option>
+            <option  value="box">used box</option>
         </select>
     </form>
     <form class='pick'>
@@ -26,8 +26,18 @@
             <option value='😊'>smile</option>
             <option value='🐬'>dolphin</option>
         </select>
-        <label id='height-tri-label' for="height-tri"></label>
-        <input type="number" name="number" id="height-tri" min="1" max="100">
+        <div class="non-box invisible" data-nonbox>
+            <label id='height-tri-label' for="height-tri"></label>
+            <input type="number" name="number" id="height-tri" min="1" max="100">
+        </div>
+        <div class="box invisible" data-for-box>
+            <label for="">Pick the size of the box: </label>
+            <label for="width">Width: </label>
+            <input type="number" id="width" min="1">
+            <label for="height">Height: </label>
+            <input type="number" id="height" min="1">
+        </div>
+        
         <input id="submit" type="button" value="Submit" data-shape>
     </form>   
     <div class='the-box'>
