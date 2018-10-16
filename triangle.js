@@ -1,6 +1,5 @@
 //I want to build a cone in javascript
 let sym = document.getElementById('mySelect');
-// let symbol = getSymbol();
 let answer = document.getElementById("showcase");
 let nonBox = document.querySelector('[data-nonbox]');
 let forBox = document.querySelector('[data-for-box]');
@@ -58,6 +57,10 @@ function changeEventHandler(event){
   } else if(event.target.value === "box"){
     forBox.classList.remove('invisible');
     nonBox.classList.add('invisible');
+    let dataShape = document.getElementById('submit');
+    dataShape.setAttribute('data-shape', 'box');
+    dataShape.addEventListener('click', make_box);
+
   }
 }
 
@@ -108,9 +111,9 @@ function make_triangle(){
 }
 
 function make_box(){
-  let height = 4;
-  let width = 6;
-
+  answer.innerHTML = '';
+  let height = document.getElementById('height').value;
+  let width = document.getElementById('width').value;
   for(let row=0; row<height; row++){
       let line = '';
       for(let col=0; col<width; col++){
@@ -120,13 +123,13 @@ function make_box(){
               if(col === 0){
                   line += symbol;
               }else if(col === width-1){
-                  line += ' '+symbol;
+                  line += '&nbsp'+symbol;
               }else{
-                  line += '  ';
+                  line += '&nbsp &nbsp &nbsp';
               }
           }
       };
-      console.log(line);
+      answer.innerHTML += line+'<br>';
   }; 
 }
 
