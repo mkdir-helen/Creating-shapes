@@ -3,6 +3,8 @@ let sym = document.getElementById('mySelect');
 let answer = document.getElementById("showcase");
 let nonBox = document.querySelector('[data-nonbox]');
 let forBox = document.querySelector('[data-for-box]');
+let getYourOwnButton = document.querySelector('#getit');
+let symbol = '';
 
 // outputElement.textContent = newFortune;
 // const triangle = document.querySelector('[data-shape="triangle"]');
@@ -12,23 +14,37 @@ let forBox = document.querySelector('[data-for-box]');
 
 
 //Changing the DOM when the user chooses an option
-document.addEventListener('DOMContentLoaded', function(){
-  document.querySelector('select[name="shapes"]').onchange=changeEventHandler;
-}, false);
-
-// symbol.addEventListener('click', function(event){
-//   symbol.value = event.target.value;
-//   console.log(symbol);
+// document.addEventListener('DOMContentLoaded', function(){
+//   document.querySelector('select[name="shapes"]').onchange=changeEventHandler;
 // }, false);
 
-document.addEventListener('DOMContentLoaded', function(){
-  document.querySelector('select[name="mySelect"]').onchange=getSymbol;
-}, false);
+document.querySelector('select[name="shapes"]').addEventListener('change', changeEventHandler);
+
+// document.addEventListener('DOMContentLoaded', function(){
+//   document.querySelector('select[name="mySelect"]').onchange=yourSymbol;
+// }, false);
+
+// document.addEventListener('DOMContentLoaded', function(){
+//   document.querySelector('select[name="mySelect"]').onchange=getSymbol;
+// }, false);
+
+document.querySelector('select[name="mySelect"]').addEventListener('change', getSymbol);
+// if (symbol){
+//   yourSymbol();
+// }
+// document.querySelector('select[name="mySelect"]').addEventListener('change', yourSymbol);
+
+
+
+
+function yourSymbol(){
+  console.log('hello');
+  }
 
 function getSymbol(event){
-  sym.value = event.target.value;
-  symbol = sym.value;
-  return symbol;
+    sym.value = event.target.value;
+    symbol = sym.value;
+    return symbol;
 };
 
 function changeEventHandler(event){
