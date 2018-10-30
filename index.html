@@ -20,14 +20,18 @@
         </select>
     </form>
     <form class='pick'>
-        <select name="mySelect" id="mySelect">
+        <select class="" name="mySelect" id="mySelect">
             <option value="">Pick a symbol</option>
             <option value='⭐️'>star</option>
             <option value='❤️'>heart</option>
             <option value='😊'>smile</option>
             <option value='🐬'>dolphin</option>
-            <option value=''><button id='getit'>insert your own</button></option>
+            <option value='getit'>insert your own</option>
         </select>
+        <div class="symbol-choice invisible" data-symbol-choice>
+            <label for="">Insert your own emoji: </label>
+            <input type="text" id="symbol-input">
+        </div>
         <div class="non-box invisible" data-nonbox>
             <label id='height-tri-label' for="height-tri"></label>
             <input type="number" name="number" id="height-tri" min="1" max="100">

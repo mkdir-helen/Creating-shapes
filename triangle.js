@@ -1,9 +1,12 @@
 //I want to build a cone in javascript
 let sym = document.getElementById('mySelect');
+let symbolInputDiv = document.querySelector('[data-symbol-choice]');
+let symbolInput = document.getElementById('symbol-input');
 let answer = document.getElementById("showcase");
 let nonBox = document.querySelector('[data-nonbox]');
 let forBox = document.querySelector('[data-for-box]');
 let getYourOwnButton = document.querySelector('#getit');
+let submit = document.querySelector('[data-shape]');
 let symbol = '';
 
 // outputElement.textContent = newFortune;
@@ -20,33 +23,27 @@ let symbol = '';
 
 document.querySelector('select[name="shapes"]').addEventListener('change', changeEventHandler);
 
-// document.addEventListener('DOMContentLoaded', function(){
-//   document.querySelector('select[name="mySelect"]').onchange=yourSymbol;
-// }, false);
-
-// document.addEventListener('DOMContentLoaded', function(){
-//   document.querySelector('select[name="mySelect"]').onchange=getSymbol;
-// }, false);
-
 document.querySelector('select[name="mySelect"]').addEventListener('change', getSymbol);
-// if (symbol){
-//   yourSymbol();
-// }
 // document.querySelector('select[name="mySelect"]').addEventListener('change', yourSymbol);
 
 
+submit.addEventListener('click', function(){
+  symbol = symbolInput.value;
+});
 
-
-function yourSymbol(){
-  console.log('hello');
-  }
-
+//Get symbol when user chooses a symbol from the selector
 function getSymbol(event){
-    sym.value = event.target.value;
+  sym.value = event.target.value;
+  if(sym.value==='getit'){
+    symbolInputDiv.classList.remove('invisible');
+  }else{
     symbol = sym.value;
-    return symbol;
+
+  }
+  
 };
 
+//When the shapes are selected by the user, the DOM changes
 function changeEventHandler(event){
   answer.innerHTML = '';
   if(event.target.value === "triangle"){
@@ -76,7 +73,6 @@ function changeEventHandler(event){
     let dataShape = document.getElementById('submit');
     dataShape.setAttribute('data-shape', 'box');
     dataShape.addEventListener('click', make_box);
-
   }
 }
 
