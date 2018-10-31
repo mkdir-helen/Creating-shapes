@@ -22,6 +22,13 @@ header h1{
     width: 100%;
     margin: 10% auto 0 auto;
     display: table; /* makes sure the content always fits within the box */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.in-the-box{
+    max-width: 100%;
 }
 
 .invisible {
