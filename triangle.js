@@ -35,9 +35,13 @@ function getSymbol(event){
     if(symbolInputDiv.classList.contains('invisible')){
       symbolInputDiv.classList.remove('invisible');
     }
-    // submit.addEventListener('click', function(){
+    if(symbolInput.value === ''){
+      symbolInput.addEventListener('focusout', function(){
+        symbol = symbolInput.value;
+      });
+    }else{
       symbol = symbolInput.value;
-    // });
+    }
   }else{
     if(symbolInputDiv.classList.contains('invisible')===false){
       symbolInputDiv.classList.add('invisible');
