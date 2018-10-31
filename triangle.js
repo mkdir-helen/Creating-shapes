@@ -32,12 +32,17 @@ document.querySelector('select[name="mySelect"]').addEventListener('change', get
 function getSymbol(event){
   sym.value = event.target.value;
   if(sym.value==='getit'){
-    symbolInputDiv.classList.remove('invisible');
-    submit.addEventListener('click', function(){
+    if(symbolInputDiv.classList.contains('invisible')){
+      symbolInputDiv.classList.remove('invisible');
+    }
+    // submit.addEventListener('click', function(){
       symbol = symbolInput.value;
-    });
+    // });
   }else{
-    symbol = sym.value;
+    if(symbolInputDiv.classList.contains('invisible')===false){
+      symbolInputDiv.classList.add('invisible');
+    }
+      symbol = sym.value;
 
   }
   
