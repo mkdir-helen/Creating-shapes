@@ -27,15 +27,15 @@ document.querySelector('select[name="mySelect"]').addEventListener('change', get
 // document.querySelector('select[name="mySelect"]').addEventListener('change', yourSymbol);
 
 
-submit.addEventListener('click', function(){
-  symbol = symbolInput.value;
-});
 
 //Get symbol when user chooses a symbol from the selector
 function getSymbol(event){
   sym.value = event.target.value;
   if(sym.value==='getit'){
     symbolInputDiv.classList.remove('invisible');
+    submit.addEventListener('click', function(){
+      symbol = symbolInput.value;
+    });
   }else{
     symbol = sym.value;
 
