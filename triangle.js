@@ -43,8 +43,8 @@ function getSymbol(event){
 
 //When the shapes are selected by the user, the DOM changes
 function changeEventHandler(event){
-  answer.innerHTML = '';
   let the_func;
+  // debugger;
   if(event.target.value === "triangle"){
     toggleBox();
     toggleNonBox();
@@ -65,6 +65,10 @@ function changeEventHandler(event){
     nonBox.classList.add('invisible');
     the_func = make_box;
   }
+  submit.removeEventListener('click', make_triangle);
+  submit.removeEventListener('click', make_cone);
+  submit.removeEventListener('click', make_square);
+  submit.removeEventListener('click', make_box);
   submit.addEventListener('click', the_func);
 }
 
@@ -80,6 +84,7 @@ function toggleNonBox(){
 }
 
 function make_triangle(){
+  console.log("I am triangle");
   answer.innerHTML = '';
   let userInput = document.getElementById('height-tri').value;
   let oWidth;
@@ -115,6 +120,8 @@ function make_triangle(){
 }
 
 function make_box(){
+  console.log("I am box");
+
   answer.innerHTML = '';
   let height = document.getElementById('height').value;
   let width = document.getElementById('width').value;
@@ -138,6 +145,8 @@ function make_box(){
 }
 
 function make_square (){
+  console.log("I am square");
+
   answer.innerHTML = '';
   let num = document.getElementById('height-tri').value;
   for(let row=0;row<num; row++){
@@ -157,6 +166,8 @@ function cone_width(height){
 
 
 function make_cone(){
+  console.log("I am cone");
+
   answer.innerHTML = '';
   let userInput = document.getElementById('height-tri').value;
   let width, oWidth;
