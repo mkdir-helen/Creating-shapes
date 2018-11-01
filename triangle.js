@@ -5,16 +5,8 @@ let symbolInput = document.getElementById('symbol-input');
 let answer = document.getElementById("showcase");
 let nonBox = document.querySelector('[data-nonbox]');
 let forBox = document.querySelector('[data-for-box]');
-let getYourOwnButton = document.querySelector('#getit');
-let submit = document.querySelector('[data-shape]');
+let submit = document.querySelector('[data-submit]');
 let symbol = '';
-
-// outputElement.textContent = newFortune;
-// const triangle = document.querySelector('[data-shape="triangle"]');
-// const cone = document.querySelector('[data-shape="cone"]');
-// const box = document.querySelector('[data-shape="box"]');
-// const square = document.querySelector('[data-shape="square"]');
-
 
 //Changing the DOM when the user chooses an option
 // document.addEventListener('DOMContentLoaded', function(){
@@ -22,10 +14,7 @@ let symbol = '';
 // }, false);
 
 document.querySelector('select[name="shapes"]').addEventListener('change', changeEventHandler);
-
 document.querySelector('select[name="mySelect"]').addEventListener('change', getSymbol);
-// document.querySelector('select[name="mySelect"]').addEventListener('change', yourSymbol);
-
 
 
 //Get symbol when user chooses a symbol from the selector
@@ -47,42 +36,36 @@ function getSymbol(event){
       symbolInputDiv.classList.add('invisible');
     }
       symbol = sym.value;
-
   }
   
 };
 
+
 //When the shapes are selected by the user, the DOM changes
 function changeEventHandler(event){
   answer.innerHTML = '';
+  let the_func;
   if(event.target.value === "triangle"){
     toggleBox();
     toggleNonBox();
-    let dataShape = document.getElementById('submit');
-    dataShape.setAttribute('data-shape', 'triangle');
     document.getElementById('height-tri-label').innerHTML = "Enter the height of triangle: ";
-    dataShape.addEventListener('click', make_triangle);
+    the_func = make_triangle;
   }else if(event.target.value === "cone"){
     toggleBox();
     toggleNonBox();
-    let dataShape = document.getElementById('submit');
-    dataShape.setAttribute('data-shape', 'cone');
     document.getElementById('height-tri-label').innerHTML = "Enter the height of cone: ";
-    dataShape.addEventListener('click', make_cone);
+    the_func = make_cone;
   }else if(event.target.value === "square"){
     toggleBox();
     toggleNonBox();
-    let dataShape = document.getElementById('submit');
-    dataShape.setAttribute('data-shape', 'square');
     document.getElementById('height-tri-label').innerHTML = "Enter the size of the square: ";
-    dataShape.addEventListener('click', make_square);
+    the_func = make_square;
   } else if(event.target.value === "box"){
     forBox.classList.remove('invisible');
     nonBox.classList.add('invisible');
-    let dataShape = document.getElementById('submit');
-    dataShape.setAttribute('data-shape', 'box');
-    dataShape.addEventListener('click', make_box);
+    the_func = make_box;
   }
+  submit.addEventListener('click', the_func);
 }
 
 function toggleBox(){
@@ -165,9 +148,6 @@ function make_square (){
     answer.innerHTML += line + '<br>';
   };
 }
-
-//Calling the cone function
-// cone.addEventListener('click', make_cone);
 
 
 ////////////CONE//////////////////////////
