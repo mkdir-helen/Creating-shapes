@@ -1,4 +1,5 @@
-//I want to build a cone in javascript
+
+
 let sym = document.getElementById('mySelect');
 let symbolInputDiv = document.querySelector('[data-symbol-choice]');
 let symbolInput = document.getElementById('symbol-input');
@@ -13,6 +14,7 @@ let symbol = '';
 //   document.querySelector('select[name="shapes"]').onchange=changeEventHandler;
 // }, false);
 
+//Adding eventListeners for the select form for shapes and symbols
 document.querySelector('select[name="shapes"]').addEventListener('change', changeEventHandler);
 document.querySelector('select[name="mySelect"]').addEventListener('change', getSymbol);
 
@@ -20,10 +22,13 @@ document.querySelector('select[name="mySelect"]').addEventListener('change', get
 //Get symbol when user chooses a symbol from the selector
 function getSymbol(event){
   sym.value = event.target.value;
+  //When user selects Insert Your Emoji option the forum becomes visible
   if(sym.value==='getit'){
     if(symbolInputDiv.classList.contains('invisible')){
       symbolInputDiv.classList.remove('invisible');
     }
+    //Once the user enters an emoji, upon coming out of focus the value 
+    //is immediately assigned as a symbol
     if(symbolInput.value === ''){
       symbolInput.addEventListener('focusout', function(){
         symbol = symbolInput.value;
@@ -65,6 +70,7 @@ function changeEventHandler(event){
     nonBox.classList.add('invisible');
     the_func = make_box;
   }
+  //remove previous eventListeners so that there is only one eventListener attached
   submit.removeEventListener('click', make_triangle);
   submit.removeEventListener('click', make_cone);
   submit.removeEventListener('click', make_square);
@@ -82,6 +88,11 @@ function toggleNonBox(){
     nonBox.classList.remove('invisible');
   };
 }
+
+///////////////////////////////////////////
+////          SHAPE FUNCTIONS          ////
+///////////////////////////////////////////
+
 
 function make_triangle(){
   console.log("I am triangle");
@@ -159,7 +170,7 @@ function make_square (){
 }
 
 
-////////////CONE//////////////////////////
+//calculates cone base width from height
 function cone_width(height){
     return parseInt(2*height-1);
   };
